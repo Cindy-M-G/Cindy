@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cindy Gutierrez - Portafolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              wine: {
+                50: '#fffafa', // White-ish snow
+                100: '#fce7ea',
+                200: '#f9d1d8',
+                300: '#f4aab8',
+                400: '#ee7b91',
+                500: '#cc2d4f',
+                600: '#ab203d',
+                700: '#8e1d35',
+                800: '#6d0f21',
+                900: '#4a0816',
+                950: '#2d060e', // Much darker wine
+              },
+            },
+            fontFamily: {
+              serif: ['Playfair Display', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #ffffff;
+        color: #2d060e;
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+      }
+      .title-font {
+        font-family: 'Playfair Display', serif;
+      }
+      /* Custom selection to match theme */
+      ::selection {
+        background-color: #ab203d;
+        color: white;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
