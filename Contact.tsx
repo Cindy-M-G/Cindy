@@ -10,27 +10,43 @@ const Contact: React.FC = () => {
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('submitting');
-
-    // Preparamos los datos para Web3Forms
-    const object = {
+  cst object = {
       ...formData,
       access_key: "e40e451b-72b1-4b2d-b3e0-e47788d1c36f", // Tu llave
       from_name: "Portafolio Mirelly",
     };
-    const json = JSON.stringify(object);
+   const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("access_key", "e40e451b-72b1-4b2d-b3e0-e47788d1c36f");
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("subject", formData.subject);
+    formDataToSend.append("message", formData.message);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: json
+        body: formDataToSend
       });
+
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("¡Éxito!", data);
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        console.error("Error de Web3Forms:", data.message);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+      setStatus('error');
+    }
+  };
       const result = await response.json();
 
       if (result.success) {
