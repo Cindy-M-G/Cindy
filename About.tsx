@@ -10,7 +10,7 @@ const About: React.FC = () => {
           <div className="absolute -inset-3 bg-wine-500 rounded-full opacity-10 group-hover:opacity-25 transition duration-500 blur-2xl"></div>
           <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-xl border-2 border-wine-100 p-1 bg-white">
             <div className="w-full h-full rounded-full bg-wine-900 flex items-center justify-center transition duration-700 group-hover:scale-110 group-hover:bg-wine-800">
-              <span className="title-font text-white text-3xl md:text-4xl font-bold tracking-tighter select-none">CG</span>
+              <img src="/curriculum.png"alt="Cindy Gutierrez"className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-white select-none"/>
             </div>
           </div>
           {/* Experience Badge Adjusted for small size */}
