@@ -14,15 +14,10 @@ const About: React.FC = () => {
           
           <div className="relative w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden shadow-2xl border-8 border-white p-0 bg-white transition-transform duration-500 group-hover:scale-105 ring-4 ring-wine-100/50">
             <div className="w-full h-full rounded-full overflow-hidden bg-wine-900 flex items-center justify-center">
-              <img 
-                public="https://github.com/Cindy-M-G/Cindy/blob/main/public/curriculum.png" 
-                alt="Cindy Gutierrez"
-                className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                style={{ objectPosition: 'center 20%' }}
-                onError={(e) => {
-                  // Fallback to the provided photo description or a high quality placeholder
-                  e.currentTarget.src = "https://ui-avatars.com/api/?name=Cindy+Gutierrez&background=4a0816&color=fff&size=512";
-                }}
+              <img
+                src="/curriculum.png"
+                  alt="Foto de perfil"
+                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
               />
               {/* Initials Overlay (Subtle) */}
               <div className="absolute inset-0 bg-gradient-to-t from-wine-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
