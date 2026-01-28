@@ -1,4 +1,4 @@
-
+  
 import React from 'react';
 
 const About: React.FC = () => {
@@ -14,11 +14,22 @@ const About: React.FC = () => {
           
           <div className="relative w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden shadow-2xl border-8 border-white p-0 bg-white transition-transform duration-500 group-hover:scale-105 ring-4 ring-wine-100/50">
             <div className="w-full h-full rounded-full overflow-hidden bg-wine-900 flex items-center justify-center">
-              <img
-                src="/curriculum.png"
-                  alt="Foto de perfil"
-                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-              />
+              <img 
+              // En React, lo que está en 'public' se sirve desde la raíz '/'
+              src={`${process.env.PUBLIC_URL || ''}/curriculum.png`} 
+              alt="Cindy Gutierrez"
+              className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                style={{ objectPosition: 'center 10%' }}
+  onError={(e) => {
+    // Si la ruta falla, intentamos la ruta directa (útil para GitHub Pages)
+    const target = e.currentTarget;
+    if (target.src.includes('curriculum.png')) {
+      target.src = "/curriculum.png"; 
+    } else {
+      target.src = "https://ui-avatars.com/api/?name=Cindy+Gutierrez&background=4a0816&color=fff&size=512";
+    }
+  }}
+/>
               {/* Initials Overlay (Subtle) */}
               <div className="absolute inset-0 bg-gradient-to-t from-wine-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
                 <span className="text-white font-bold tracking-tighter text-xl">CG</span>
