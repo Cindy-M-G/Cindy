@@ -5,16 +5,29 @@ const About: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-center md:items-start">
-        {/* Profile Placeholder Column - Small, Circular and Wine Colored */}
+        {/* Profile Image Column - Circular and Smaller */}
         <div className="flex-shrink-0 relative group">
+          {/* Decorative Ring */}
+          <div className="absolute -inset-4 border-2 border-dashed border-wine-200 rounded-full animate-[spin_20s_linear_infinite] opacity-30"></div>
+          
           <div className="absolute -inset-3 bg-wine-500 rounded-full opacity-10 group-hover:opacity-25 transition duration-500 blur-2xl"></div>
-          <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-xl border-2 border-wine-100 p-1 bg-white">
-            <div className="w-full h-full rounded-full bg-wine-900 flex items-center justify-center transition duration-700 group-hover:scale-110 group-hover:bg-wine-800">
-              <img public="/curriculum.png"
+          
+          <div className="relative w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden shadow-2xl border-8 border-white p-0 bg-white transition-transform duration-500 group-hover:scale-105 ring-4 ring-wine-100/50">
+            <div className="w-full h-full rounded-full overflow-hidden bg-wine-900 flex items-center justify-center">
+              <img 
+                public="https://github.com/Cindy-M-G/Cindy/blob/main/public/curriculum.png" 
                 alt="Cindy Gutierrez"
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border-2 border-white 
-                select-none"
-                />
+                className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                style={{ objectPosition: 'center 20%' }}
+                onError={(e) => {
+                  // Fallback to the provided photo description or a high quality placeholder
+                  e.currentTarget.src = "https://ui-avatars.com/api/?name=Cindy+Gutierrez&background=4a0816&color=fff&size=512";
+                }}
+              />
+              {/* Initials Overlay (Subtle) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-wine-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+                <span className="text-white font-bold tracking-tighter text-xl">CG</span>
+              </div>
             </div>
           </div>
           {/* Experience Badge Adjusted for small size */}
